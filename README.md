@@ -1,6 +1,6 @@
 # morgan-body-ext
 
-This library is an customised version of the [morgan-body](https://github.com/sirrodgepodge/morgan-body).
+This library is a customised version of the [morgan-body](https://github.com/sirrodgepodge/morgan-body).
 
 The original [morgan-body](https://github.com/sirrodgepodge/morgan-body) lacks the functionality to log additional request/response tokens like 'Request ID' which would useful for log tracing purposes.
 
