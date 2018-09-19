@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/jazzyinstyle/morgan-body-ext/issues"
   },
-  "homepage": "https://github.com/jazzyinstyle/morgan-body-ext#readme"
+  "homepage": "https://github.com/jazzyinstyle/morgan-body-ext#readme",
+  "keywords": [
+    "morgan",
+    "express",
+    "logging",
+    "logger"
+  ]
 }
