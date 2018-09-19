@@ -21,5 +21,8 @@
     "express",
     "logging",
     "logger"
-  ]
+  ],
+  "dependencies": {
+    "morgan-body": "2.4.5"
+  }
 }
