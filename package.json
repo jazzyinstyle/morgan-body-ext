@@ -20,7 +20,7 @@
     "express",
     "logging",
     "logger"
-  ]
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jazzyinstyle/morgan-body-ext/issues"
