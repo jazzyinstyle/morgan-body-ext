@@ -4,7 +4,7 @@ This library is an customised version of the [morgan-body](https://github.com/si
 
 The original [morgan-body](https://github.com/sirrodgepodge/morgan-body) lacks the functionality to log additional request/response tokens like 'Request ID' which would useful for log tracing purposes.
 
-This library additionally logs these tokens as part of the original log format (defined in [morgan-body](https://github.com/sirrodgepodge/morgan-body)) :
+[morgan-body-ext](https://github.com/jazzyinstyle/morgan-body-ext) additionally logs these tokens as part of the original log format:
 
 **id**: Request ID
 
