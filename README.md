@@ -2,13 +2,16 @@
 
 This library is an customised version of the [morgan-body](https://github.com/sirrodgepodge/morgan-body).
 
-It additionally logs these tokens as part of the original string format:
+The original [morgan-body](https://github.com/sirrodgepodge/morgan-body) lacks the functionality to log additional request/response tokens like 'Request ID' which would useful for log tracing purposes.
+
+This library additionally logs these tokens as part of the original log format (defined in [morgan-body](https://github.com/sirrodgepodge/morgan-body)) :
 
 **id**: Request ID
 
 **request-headers**: Request headers (JSON string)
 
 **response-headers**: Response headers (JSON string)
+
 
 [![NPM][nodei-image]][nodei-url]
 
