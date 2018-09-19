@@ -1,9 +1,13 @@
 # morgan-body-ext
 
-This library is an customised version of the [morgan-body](https://github.com/sirrodgepodge/morgan-body)
+This library is an customised version of the [morgan-body](https://github.com/sirrodgepodge/morgan-body).
+
 It additionally logs these tokens as part of the original string format:
+
 **id**: Request ID
+
 **request-headers**: Request headers (JSON string)
+
 **response-headers**: Response headers (JSON string)
 
 [![NPM][nodei-image]][nodei-url]
