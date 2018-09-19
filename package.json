@@ -1,0 +1,19 @@
+{
+  "name": "morgan-body-ext",
+  "version": "1.0.0",
+  "description": "Customised version of morgan-body",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jazzyinstyle/morgan-body-ext.git"
+  },
+  "author": "Andrew Leong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jazzyinstyle/morgan-body-ext/issues"
+  },
+  "homepage": "https://github.com/jazzyinstyle/morgan-body-ext#readme"
+}
