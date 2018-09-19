@@ -1,28 +1,41 @@
 {
   "name": "morgan-body-ext",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Customised version of morgan-body",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --check-leaks --reporter spec --bail"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jazzyinstyle/morgan-body-ext.git"
   },
-  "author": "Andrew Leong",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jazzyinstyle/morgan-body-ext/issues"
+  "author": {
+    "name": "Andrew Leong",
+    "email": "jazzyinstyle@yahoo.com",
+    "url": "https://github.com/jazzyinstyle"
   },
-  "homepage": "https://github.com/jazzyinstyle/morgan-body-ext#readme",
   "keywords": [
     "morgan",
     "express",
     "logging",
     "logger"
-  ],
+  ]
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jazzyinstyle/morgan-body-ext/issues"
+  },  
+  "homepage": "https://github.com/jazzyinstyle/morgan-body-ext#readme",
   "dependencies": {
-    "morgan-body": "2.4.5"
-  }
+    "moment-timezone": "^0.5.13",
+    "on-finished": "^2.3.0",
+    "on-headers": "^1.0.1"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0",
+    "universal-stream-test": "^1.0.0"
+  }  
 }
