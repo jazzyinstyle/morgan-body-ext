@@ -24,7 +24,9 @@ const morganBody = require('morgan-body-ext');
 
 const app = express();
 
-/* Using 'express-request-id' to generate UUID for request and add it to X-Request-Id header. In case request contains X-Request-Id header, it uses its value instead.
+/* Using 'express-request-id' to generate UUID for request 
+and add it to X-Request-Id header. 
+In case request contains X-Request-Id header, it uses its value instead.
 */
 const requestId = require('express-request-id')();
 
@@ -39,7 +41,6 @@ morgan.token('id', req => req.id);
 app.use(bodyParser.json());
 
 /* Hook morganBody to express app */
-// hook morganBody to express app
 morganBody(app);
 ```
 
