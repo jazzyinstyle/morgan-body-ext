@@ -2,20 +2,46 @@
 
 This library is a customised version of the [morgan-body](https://github.com/sirrodgepodge/morgan-body).
 
-The original [morgan-body](https://github.com/sirrodgepodge/morgan-body) lacks the functionality to log additional request/response tokens like 'Request ID' which would useful for log tracing purposes.
+The original [morgan-body](https://github.com/sirrodgepodge/morgan-body) lacks the functionality to log additional request/response tokens like 'Request ID' which would be useful for log tracing purposes.
 
 [morgan-body-ext](https://github.com/jazzyinstyle/morgan-body-ext) additionally logs these tokens as part of the original log format:
 
-**id**: Request ID
+* **id**: Request ID
 
-**request-headers**: Request headers (JSON string)
+* **request-headers**: Request headers (JSON string)
 
-**response-headers**: Response headers (JSON string)
-
-> You might want to also check out a convenient way to generate and add the ID to every Request using [express-request-id](https://www.npmjs.com/package/express-request-id) 
-
+* **response-headers**: Response headers (JSON string)
 
 [![NPM][nodei-image]][nodei-url]
+
+
+## Example of Use
+```JS
+const express = require('express');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const morganBody = require('morgan-body-ext');
+
+const app = express();
+
+/* Using 'express-request-id' to generate UUID for request and add it to X-Request-Id header. In case request contains X-Request-Id header, it uses its value instead.
+*/
+const requestId = require('express-request-id')();
+
+app.use(requestId);
+
+/* Create the 'id' token in morgan that returns the Request ID. 
+Refer https://www.npmjs.com/package/morgan#tokens for more details. 
+*/
+morgan.token('id', req => req.id); 
+
+/* Parse body before morganBody as body will be logged */
+app.use(bodyParser.json());
+
+/* Hook morganBody to express app */
+// hook morganBody to express app
+morganBody(app);
+```
 
 ## Example of Generated Logs
 ```
@@ -25,7 +51,10 @@ The original [morgan-body](https://github.com/sirrodgepodge/morgan-body) lacks t
 2018-09-19T02:32:57.530Z info: [4bc80c25-7748-4fc6-9592-772723333390] Response: 200 headers[-] 2923.631 ms - 27
 ```
 
-Please refer to [morgan-body](https://github.com/sirrodgepodge/morgan-body) for usage example.
+## References
+* Please refer to [morgan-body](https://github.com/sirrodgepodge/morgan-body) for more usage example.
+* UUID generation for Request: [express-request-id](https://www.npmjs.com/package/express-request-id) 
+
 
 [nodei-image]: https://nodei.co/npm/morgan-body-ext.png?downloads=true&downloadRank=true&stars=true
 [nodei-url]: https://www.npmjs.com/package/morgan-body-ext
