@@ -12,6 +12,8 @@ The original [morgan-body](https://github.com/sirrodgepodge/morgan-body) lacks t
 
 **response-headers**: Response headers (JSON string)
 
+> You might want to also check out a convenient way to generate and add the ID to every Request using [express-request-id](https://www.npmjs.com/package/express-request-id) 
+
 
 [![NPM][nodei-image]][nodei-url]
 
