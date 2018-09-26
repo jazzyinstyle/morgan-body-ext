@@ -47,8 +47,8 @@ morganBody(app);
 ## Example of Generated Logs
 ```
 2018-09-19T02:32:57.526Z info: [4bc80c25-7748-4fc6-9592-772723333390] Request: POST /sample?test=123 headers[{"host":"somehost:4000","connection":"keep-alive","content-length":"457","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36","cache-control":"no-cache","origin":"some-origin","param1":"8888","content-type":"application/json","accept":"*/*","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9","cookie":"some-cookie"}]
-2018-09-19T02:32:57.527Z info: Request Body:{"detail":"123","detail2":{"some-id":"123"}}
-2018-09-19T02:32:57.528Z info: Response Body:{"some response body"}
+2018-09-19T02:32:57.527Z info: [4bc80c25-7748-4fc6-9592-772723333390] Request Body:{"detail":"123","detail2":{"some-id":"123"}}
+2018-09-19T02:32:57.528Z info: [4bc80c25-7748-4fc6-9592-772723333390] Response Body:{"some response body"}
 2018-09-19T02:32:57.530Z info: [4bc80c25-7748-4fc6-9592-772723333390] Response: 200 headers[-] 2923.631 ms - 27
 ```
 
