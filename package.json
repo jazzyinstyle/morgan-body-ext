@@ -1,6 +1,6 @@
 {
   "name": "morgan-body-ext",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Customised version of morgan-body",
   "main": "index.js",
   "scripts": {
