@@ -302,7 +302,8 @@ module.exports = function morganBody(app, options) {
     function logBodyGen(prependStr, getBodyFunc) {
       var bodyFormatName = 'bodyFmt_' + prependStr + morganBodyUseCounter;
       morgan.format(bodyFormatName, function logBody(_, req, res) {
-        return bodyToString(maxBodyLength, prettify, prependStr, getBodyFunc(req, res), bodyActionColor, bodyColor, defaultColor);
+        const exPrependStr = '[' + getIDToken(req) + '] ' + prependStr;
+        return bodyToString(maxBodyLength, prettify, exPrependStr, getBodyFunc(req, res), bodyActionColor, bodyColor, defaultColor);
       });
       return bodyFormatName;
     }
@@ -476,8 +477,12 @@ morgan.token('url', function getUrlToken(req) {
  * request method
  */
 
-morgan.token('id', function getMethodToken(req) {
+function getIDToken(req) {
   return req.id;
+};
+
+morgan.token('id', function getToken(req) {
+  return getIDToken(req);
 });
 
 morgan.token('method', function getMethodToken(req) {
