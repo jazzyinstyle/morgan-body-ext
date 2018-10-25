@@ -188,6 +188,8 @@ module.exports = function morganBody(app, options) {
   options = options || {};
   var maxBodyLength = options.hasOwnProperty('maxBodyLength') ? options.maxBodyLength : 1000;
   var logReqDateTime = options.hasOwnProperty('logReqDateTime') ? options.logReqDateTime : true;
+  var logAllReqHeader = options.hasOwnProperty('logAllReqHeader') ? options.logAllReqHeader : false;
+  var logReqHeaderList = options.hasOwnProperty('logReqHeaderList') ? options.logReqHeaderList : null;
   var logReqUserAgent = options.hasOwnProperty('logReqUserAgent') ? options.logReqUserAgent : true;
   var logRequestBody = options.hasOwnProperty('logRequestBody') ? options.logRequestBody : true;
   var logResponseBody = options.hasOwnProperty('logResponseBody') ? options.logResponseBody : true;
@@ -282,7 +284,18 @@ module.exports = function morganBody(app, options) {
     var fn = developmentFormatLine.func;
     if (!fn) {
       // compile and memoize
-      var formatString = actionColor + '[:id] ' + 'Request: ' + methodColor + ':method ' + pathColor + ':url ' + 'headers[:request-headers]';
+      var formatString = actionColor + '[:id] ' + 'Request: ' + methodColor + ':method ' + pathColor + ':url';
+      if (logAllReqHeader) {
+        formatString += ' headers[:request-headers]';
+      } else {
+        if (logReqHeaderList && logReqHeaderList.length > 0) {
+          formatString += ' headers[';
+          for (var i = 0; i < logReqHeaderList.length; i++) {
+            formatString += `${logReqHeaderList[i]}=:req[${logReqHeaderList[i]}];`;
+          }
+          formatString += ']';
+        }
+      }
       if (logReqDateTime) formatString += ' ' + userAgentColor + 'at ' + dateColor + ':date';
       if (dateTimeFormat) formatString += `[${dateTimeFormat}]`;
       if (logReqDateTime && logReqUserAgent) formatString += ',';
