@@ -189,7 +189,9 @@ module.exports = function morganBody(app, options) {
   var maxBodyLength = options.hasOwnProperty('maxBodyLength') ? options.maxBodyLength : 1000;
   var logReqDateTime = options.hasOwnProperty('logReqDateTime') ? options.logReqDateTime : true;
   var logAllReqHeader = options.hasOwnProperty('logAllReqHeader') ? options.logAllReqHeader : false;
+  var logAllResHeader = options.hasOwnProperty('logAllResHeader') ? options.logAllResHeader : false;
   var logReqHeaderList = options.hasOwnProperty('logReqHeaderList') ? options.logReqHeaderList : null;
+  var logResHeaderList = options.hasOwnProperty('logResHeaderList') ? options.logResHeaderList : null;
   var logReqUserAgent = options.hasOwnProperty('logReqUserAgent') ? options.logReqUserAgent : true;
   var logRequestBody = options.hasOwnProperty('logRequestBody') ? options.logRequestBody : true;
   var logResponseBody = options.hasOwnProperty('logResponseBody') ? options.logResponseBody : true;
@@ -360,8 +362,20 @@ module.exports = function morganBody(app, options) {
 
     if (!fn) {
       // compile
-      var responseStr = actionColor + '[:id] ' + 'Response:' + ' ' + statusColor + ':status ' + 'headers[:response-headers] ' + responseTimeColor + ':response-time ms - :res[content-length]' + defaultColor;
-      fn = developmentFormatLine[statusColor] = compile(responseStr);
+      var formatString = actionColor + '[:id] ' + 'Response:' + ' ' + statusColor + ':status ' + responseTimeColor + ':response-time ms ';
+      if (logAllResHeader) {
+        formatString += ' headers[:response-headers]' + defaultColor;
+      } else {
+        if (logResHeaderList && logResHeaderList.length > 0) {
+          formatString += ' headers[';
+          for (var i = 0; i < logResHeaderList.length; i++) {
+            formatString += `${logResHeaderList[i]}=:res[${logResHeaderList[i]}];`;
+          }
+          formatString += ']' + defaultColor;
+        }
+      }
+
+      fn = developmentFormatLine[statusColor] = compile(formatString);
     }
 
     return fn(tokens, req, res);

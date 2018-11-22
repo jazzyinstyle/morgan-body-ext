@@ -12,6 +12,13 @@ The original [morgan-body](https://github.com/sirrodgepodge/morgan-body) lacks t
 
 * **response-headers**: Response headers (JSON string)
 
+You can also have the option to select only those request/response headers that you want to log by passing in these additional option-parameters:
+
+* **logAllReqHeader**: *true* will log All request headers and take precedence over logReqHeaderList; *false* otherwise.
+* **logReqHeaderList**: takes in a list of request headers to be displayed in the log.
+* **logAllResHeader**: *true* will log All response headers and take precedence over logResHeaderList; *false* otherwise.
+* **logResHeaderList**: takes in a list of response headers to be displayed in the log.
+ 
 [![NPM][nodei-image]][nodei-url]
 
 
@@ -45,7 +52,11 @@ morganBody(app, {
   /* logAllReqHeader=true will log All request headers and take precedence over logReqHeaderList */
   logAllReqHeader: false,
   /* logReqHeaderList takes in a list of request headers to be displayed in the log */
-  logReqHeaderList: ['host', 'content-length', 'cache-control', 'origin', 'content-type', 'accept']
+  logReqHeaderList: ['host', 'content-length', 'cache-control', 'origin', 'content-type', 'accept'],
+  /* logAllResHeader=true will log All response headers and take precedence over logResHeaderList */
+  logAllResHeader: false,
+  /* logResHeaderList takes in a list of response headers to be displayed in the log */
+  logResHeaderList: ['host', 'content-length', 'cache-control', 'origin', 'content-type', 'accept']
 });
 ```
 
