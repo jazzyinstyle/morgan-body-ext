@@ -1,6 +1,6 @@
 {
   "name": "morgan-body-ext",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Customised version of morgan-body",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jazzyinstyle/morgan-body-ext/issues"
-  },  
+  },
   "homepage": "https://github.com/jazzyinstyle/morgan-body-ext#readme",
   "dependencies": {
     "moment-timezone": "^0.5.13",
@@ -37,5 +37,5 @@
     "mocha": "^5.2.0",
     "supertest": "^3.1.0",
     "universal-stream-test": "^1.0.0"
-  }  
+  }
 }
