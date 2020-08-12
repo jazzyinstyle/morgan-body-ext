@@ -1,4 +1,9 @@
+
 # morgan-body-ext
+
+**Important Note:** The extra functionalities in this library have already been merge to it's parent [morgan-body](https://github.com/sirrodgepodge/morgan-body). Thanks!
+
+##
 
 This library is a customised version of the [morgan-body](https://github.com/sirrodgepodge/morgan-body).
 
